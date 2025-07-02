@@ -3,15 +3,6 @@
 ## Overview
 This is a comprehensive course management system designed for educational institutions to handle course registration, student enrollment, instructor assignment, and academic administration. The system provides a modern, responsive interface with PHP backend and MySQL database, featuring RESTful API endpoints for seamless integration.
 
-## Features
-- **Student Management**: Complete student registration, profile management, and enrollment tracking
-- **Course Management**: Course creation, scheduling, and capacity management
-- **Instructor Management**: Faculty assignment, course load tracking, and profile management
-- **Enrollment System**: Student course enrollment with real-time capacity monitoring
-- **RESTful API**: Full API support for external integrations and mobile applications
-- **Responsive Design**: Modern CSS styling with mobile-first approach
-- **Security Features**: Input validation, CSRF protection, and secure database operations
-
 ## Technology Stack
 - **Backend**: PHP 8.0+
 - **Database**: MySQL 8.0+
