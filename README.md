@@ -1,7 +1,23 @@
 # Course Management System
 
 ## Overview
-This is a comprehensive course management system designed for universities to handle course registration, student enrollment, instructor assignment, and grade recording. The system provides a clean, modern interface built with Bootstrap and uses PHP with MySQL for backend operations.
+This is a comprehensive course management system designed for educational institutions to handle course registration, student enrollment, instructor assignment, and academic administration. The system provides a modern, responsive interface with PHP backend and MySQL database, featuring RESTful API endpoints for seamless integration.
+
+## Features
+- **Student Management**: Complete student registration, profile management, and enrollment tracking
+- **Course Management**: Course creation, scheduling, and capacity management
+- **Instructor Management**: Faculty assignment, course load tracking, and profile management
+- **Enrollment System**: Student course enrollment with real-time capacity monitoring
+- **RESTful API**: Full API support for external integrations and mobile applications
+- **Responsive Design**: Modern CSS styling with mobile-first approach
+- **Security Features**: Input validation, CSRF protection, and secure database operations
+
+## Technology Stack
+- **Backend**: PHP 8.0+
+- **Database**: MySQL 8.0+
+- **Frontend**: HTML5, CSS3, Bootstrap
+- **Server**: Apache (XAMPP)
+- **API**: RESTful endpoints with JSON responses
 
 ## Entity-Relationship Diagram (ERD)
 
@@ -148,21 +164,100 @@ The database design follows **Third Normal Form (3NF)**:
 
 1. **Prerequisites**:
    - XAMPP with Apache and MySQL running
-   - Access to phpMyAdmin
+   - Access to phpMyAdmin or MySQL command line
 
-2. **Database Creation**:
-   ```sql
-   -- Import the course_management.sql file in phpMyAdmin
-   -- Or run the SQL commands directly in MySQL console
+2. **Installation Steps**:
+   ```bash
+   # Clone the repository
+   git clone https://github.com/Edjay23/course-management.git
+   
+   # Navigate to XAMPP htdocs
+   cd /Applications/XAMPP/xamppfiles/htdocs/app/course-management
+   
+   # Import database
+   # Via phpMyAdmin: Import database/course_management.sql
+   # Or via command line:
+   mysql -u root -p < database/course_management.sql
    ```
 
 3. **Configuration**:
    - Update database credentials in `config/database.php`
    - Ensure proper file permissions for web server access
+   - Verify XAMPP Apache and MySQL services are running
 
-4. **Testing**:
-   - Access the application via `http://localhost/app/`
-   - Verify all CRUD operations work correctly
-   - Test relationships and constraints
+4. **Access the Application**:
+   - Web Interface: `http://localhost/app/course-management/`
+   - API Endpoints: `http://localhost/app/course-management/api.php?endpoint={endpoint}`
 
-This design ensures data integrity, reduces redundancy, and provides a solid foundation for a university course management system while maintaining scalability and performance.
+## API Usage
+
+### Available Endpoints:
+- `GET /api.php?endpoint=students` - Get all students
+- `POST /api.php?endpoint=students` - Create new student
+- `GET /api.php?endpoint=courses` - Get all courses
+- `POST /api.php?endpoint=courses` - Create new course
+- `GET /api.php?endpoint=instructors` - Get all instructors
+- `POST /api.php?endpoint=instructors` - Create new instructor
+- `GET /api.php?endpoint=enrollments` - Get all enrollments
+- `POST /api.php?endpoint=enrollments` - Create new enrollment
+
+### Example API Request:
+```bash
+# Get all students
+curl -X GET http://localhost/app/course-management/api.php?endpoint=students
+
+# Create new student
+curl -X POST http://localhost/app/course-management/api.php?endpoint=students \
+  -H "Content-Type: application/json" \
+  -d '{"first_name":"John","last_name":"Doe","email":"john.doe@email.com"}'
+```
+
+## Project Structure
+```
+course-management/
+├── config/
+│   └── database.php          # Database configuration
+├── database/
+│   └── course_management.sql # Database schema
+├── api.php                   # RESTful API endpoints
+├── styles.css               # CSS styling
+├── index.php                # Main application entry
+├── students.php             # Student management
+├── courses.php              # Course management
+├── instructors.php          # Instructor management
+├── enrollments.php          # Enrollment management
+└── README.md               # Project documentation
+```
+
+## Development Workflow
+
+### Git Branching Strategy:
+- `main` - Production-ready code
+- `development` - Development integration branch
+- `feature/*` - Feature development branches
+- `hotfix/*` - Emergency fixes
+
+### Commit Guidelines:
+- Use descriptive commit messages
+- Follow conventional commit format
+- Make atomic commits for single features
+- Test before committing
+
+## Contributing
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Author
+**Ednel Joseph Alvarez** - edneljoseph.alvarez23@gmail.com
+
+## Changelog
+- **v1.0.0** (July 2025) - Initial release with core functionality
+- **v1.1.0** - Added RESTful API endpoints
+- **v1.2.0** - Enhanced UI with modern CSS styling
+- **v1.2.1** - Security improvements and bug fixes
