@@ -180,29 +180,6 @@ The database design follows **Third Normal Form (3NF)**:
    - Web Interface: `http://localhost/app/course-management/`
    - API Endpoints: `http://localhost/app/course-management/api.php?endpoint={endpoint}`
 
-## API Usage
-
-### Available Endpoints:
-- `GET /api.php?endpoint=students` - Get all students
-- `POST /api.php?endpoint=students` - Create new student
-- `GET /api.php?endpoint=courses` - Get all courses
-- `POST /api.php?endpoint=courses` - Create new course
-- `GET /api.php?endpoint=instructors` - Get all instructors
-- `POST /api.php?endpoint=instructors` - Create new instructor
-- `GET /api.php?endpoint=enrollments` - Get all enrollments
-- `POST /api.php?endpoint=enrollments` - Create new enrollment
-
-### Example API Request:
-```bash
-# Get all students
-curl -X GET http://localhost/app/course-management/api.php?endpoint=students
-
-# Create new student
-curl -X POST http://localhost/app/course-management/api.php?endpoint=students \
-  -H "Content-Type: application/json" \
-  -d '{"first_name":"John","last_name":"Doe","email":"john.doe@email.com"}'
-```
-
 ## Project Structure
 ```
 course-management/
